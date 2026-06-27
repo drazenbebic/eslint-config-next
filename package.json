@@ -1,6 +1,6 @@
 {
   "name": "@drazenbebic/eslint-config-next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Opinionated, shareable ESLint flat config for personal Next.js projects (Next + TypeScript + Prettier + import sorting + perfectionist).",
   "keywords": [
     "eslint",
