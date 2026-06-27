@@ -1,0 +1,80 @@
+{
+  "name": "@drazenbebic/eslint-config-next",
+  "version": "1.0.0",
+  "description": "Opinionated, shareable ESLint flat config for personal Next.js projects (Next + TypeScript + Prettier + import sorting + perfectionist).",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "eslintconfig-next",
+    "next",
+    "nextjs",
+    "react",
+    "typescript",
+    "prettier",
+    "perfectionist",
+    "flat-config"
+  ],
+  "homepage": "https://github.com/drazenbebic/eslint-config-next#readme",
+  "bugs": {
+    "url": "https://github.com/drazenbebic/eslint-config-next/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drazenbebic/eslint-config-next.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Drazen Bebic",
+    "email": "drazen.bebic@outlook.com",
+    "url": "https://www.bebic.dev"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "./index.js",
+  "sideEffects": false,
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "eslint-config-next": "^16.2.9",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-perfectionist": "^5.9.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
+    "eslint-plugin-unused-imports": "^4.4.1"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0 || ^10.0.0",
+    "next": ">=15.0.0",
+    "prettier": "^3.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "eslint": "^10.6.0",
+    "next": "^16.2.9",
+    "prettier": "^3.9.0",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@11.5.2"
+}
