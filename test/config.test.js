@@ -41,3 +41,21 @@ test('sorts named imports via perfectionist', async () => {
     `expected sort-named-imports to fire, got: ${ruleIds.join(', ')}`,
   );
 });
+
+test('groups import statements via perfectionist/sort-imports', async () => {
+  const eslint = new ESLint({
+    overrideConfigFile: true,
+    baseConfig: config,
+  });
+
+  // Relative import before a React import — wrong group order.
+  const code =
+    "import { x } from './local';\nimport { y } from 'react';\n\nx();\ny();\n";
+  const [result] = await eslint.lintText(code, { filePath: 'sample.js' });
+  const ruleIds = result.messages.map(message => message.ruleId);
+
+  assert.ok(
+    ruleIds.includes('perfectionist/sort-imports'),
+    `expected sort-imports to fire, got: ${ruleIds.join(', ')}`,
+  );
+});

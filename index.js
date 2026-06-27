@@ -1,10 +1,9 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
 import pluginPerfectionist from 'eslint-plugin-perfectionist';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 const PERFECTIONIST_DEFAULT_ARGS = {
   type: 'alphabetical',
@@ -26,7 +25,6 @@ const eslintConfig = defineConfig([
     plugins: {
       perfectionist: pluginPerfectionist,
       'unused-imports': pluginUnusedImports,
-      'simple-import-sort': simpleImportSort,
     },
     rules: {
       'prettier/prettier': 'error',
@@ -44,21 +42,28 @@ const eslintConfig = defineConfig([
         { blankLine: 'always', prev: 'try', next: '*' },
         { blankLine: 'always', prev: '*', next: 'return' },
       ],
-      'simple-import-sort/exports': 'error',
-      'simple-import-sort/imports': [
+      'perfectionist/sort-imports': [
         'error',
         {
+          ...PERFECTIONIST_DEFAULT_ARGS,
+          sortSideEffects: true,
+          customGroups: [
+            { groupName: 'side-effects', selector: 'side-effect' },
+            {
+              groupName: 'react-next-node',
+              elementNamePattern: ['^react', '^next', '^node:'],
+            },
+            { groupName: 'third-party', elementNamePattern: ['^@?\\w'] },
+            { groupName: 'internal', elementNamePattern: ['^@/'] },
+            { groupName: 'relative', elementNamePattern: ['^\\.'] },
+          ],
           groups: [
-            // 1. Side effect imports (e.g. import 'style.css')
-            ['^\\u0000'],
-            // 2. React, Next.js, and other node built-ins
-            ['^react', '^next', '^node:'],
-            // 3. Third-party packages (starting with a letter or @)
-            ['^@?\\w'],
-            // 4. Internal imports (using your @/ alias)
-            ['^@/'],
-            // 5. Relative imports (starting with .)
-            ['^\\.'],
+            'side-effects',
+            'react-next-node',
+            'third-party',
+            'internal',
+            'relative',
+            'unknown',
           ],
         },
       ],

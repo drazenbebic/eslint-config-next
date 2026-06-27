@@ -10,9 +10,8 @@ It composes the official [`eslint-config-next`](https://www.npmjs.com/package/es
 
 - **`eslint-config-next/core-web-vitals`** and **`eslint-config-next/typescript`** — the official Next.js rules.
 - **Prettier** via [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) (`prettier/prettier` runs as an ESLint rule, and conflicting stylistic rules are turned off by `eslint-config-prettier`).
-- **`simple-import-sort`** — deterministic import/export ordering grouped as: side-effects → React/Next/node builtins → third-party → `@/` alias → relative.
 - **`unused-imports`** — auto-removes unused imports and warns on unused vars.
-- **`perfectionist`** — alphabetical sorting of JSX props, named imports/exports, union/intersection types, arrays, and more.
+- **`perfectionist`** — all sorting. Import statements are grouped (side-effects → React/Next/Node built-ins → third-party → `@/` alias → relative, with `import type` intermixed by path), plus alphabetical sorting of JSX props, named imports/exports, re-exports, union/intersection types, and arrays.
 - A few hand-picked core rules: `no-console` (allowing `warn`/`error`), `curly: all`, and `padding-line-between-statements` (blank lines around `if`/`for`/`try`/`return`).
 - Default ignores: `.next/**`, `out/**`, `build/**`, `next-env.d.ts`.
 
@@ -100,7 +99,7 @@ export default eslintConfig;
 
 ### The `@/` import group
 
-The import-sort rules put imports matching `^@/` in their own group, which assumes you use the `@/*` path alias (the Next.js default). If you use a different alias, override `simple-import-sort/imports` in your project config.
+The import-sort rules put imports matching `^@/` in their own group, which assumes you use the `@/*` path alias (the Next.js default). If you use a different alias, override `perfectionist/sort-imports` in your project config.
 
 ## Releasing (maintainer notes)
 
