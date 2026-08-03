@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/drazenbebic/eslint-config-next/compare/v1.0.1...v1.1.0) (2026-08-03)
+
+
+### Features
+
+* enforce import type and sort object types, interfaces, enums, and objects ([c6e84eb](https://github.com/drazenbebic/eslint-config-next/commit/c6e84eb73416fecb1db4e6c78c8ca431ca8c4348))
+
 ## [1.0.1](https://github.com/drazenbebic/eslint-config-next/compare/v1.0.0...v1.0.1) (2026-06-27)
 
 
