@@ -12,7 +12,11 @@ Composes the official [`eslint-config-next`](https://www.npmjs.com/package/eslin
 pnpm add -D @drazenbebic/eslint-config-next eslint prettier
 ```
 
-All ESLint plugins are bundled. Peers you provide: **ESLint** `^9 || ^10` and **Prettier** `^3`, plus **Next.js** `>= 15` and **TypeScript** `>= 5` — both already present in a typical Next.js + TS app. Requires Node `>= 20` and flat config (no `.eslintrc`).
+All ESLint plugins are bundled. Peers you provide: **ESLint** `^9.22 || ^10` and **Prettier** `^3`, plus **Next.js** `>= 15` and **TypeScript** `>= 5` — both already present in a typical Next.js + TS app. Requires Node `^20.19 || ^22.13 || >= 24` and flat config (no `.eslintrc`).
+
+> **ESLint 9.22 is the floor**, not 9.0: the config uses `defineConfig`/`globalIgnores` from `eslint/config`, which that release added.
+>
+> **TypeScript 7 is not supported yet** — the bundled `typescript-eslint` 8.x accepts `< 6.1`. Stay on TypeScript 6 until it ships TS 7 support.
 
 ## Usage
 
