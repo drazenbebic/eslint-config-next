@@ -84,6 +84,9 @@ const eslintConfig = defineConfig([
     },
     settings: {
       react: {
+        // Must stay pinned: `detect` makes eslint-plugin-react 7.x call the
+        // `context.getFilename()` API that ESLint 10 removed, which crashes
+        // the whole run. Revisit once eslint-plugin-react supports ESLint 10.
         version: '19',
       },
     },
