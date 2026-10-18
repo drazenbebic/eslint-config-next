@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/drazenbebic/eslint-config-next/compare/v1.1.1...v1.1.2) (2026-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update eslint-config-next and eslint plugins ([25a6cc1](https://github.com/drazenbebic/eslint-config-next/commit/25a6cc177dec4b51c887c598d199082e506bd41e))
+
 ## [1.1.1](https://github.com/drazenbebic/eslint-config-next/compare/v1.1.0...v1.1.1) (2026-09-17)
 
 
